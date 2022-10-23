@@ -1,0 +1,31 @@
+[default]
+rebase= --keepbranch
+
+[extensions]
+hgext.bookmarks =
+hggit = 
+rebase =
+evolve =
+histedit =
+
+[alias]
+xl = log --graph --template {oneline} --limit 20
+xxl = log --graph --template {oneline} --limit 50
+
+[ui]
+merge = internal:merge
+username = Vlad Firoiu vladfi2@gmail.com
+
+[templatealias]
+oneline = '{hash}{myBranch}{myBookmarks}{myTags} {name} {commitMsg}\n'
+hash = "{label(ifeq(phase, 'secret', 'yellow', ifeq(phase, 'draft', 'blue', 'red')), node|short)}"
+myBranch = "{ifeq(branch, 'default', '', label('green', ' ({branch})'))}"
+# myBookmarks = "{bookmarks % ' {bookmark}{ifeq(bookmark, active, '*')}{bookmark}'}"
+myBookmarks = "{bookmarks % ' {bookmark}'}"
+myTags = "{label('yellow', tags % ' {tag}')}"
+name = '{label('blue', author|person)}'
+commitMsg = '{desc|firstline|strip}'
+
+[experimental]
+graphshorten = true
+evolution.allowdivergence=True
