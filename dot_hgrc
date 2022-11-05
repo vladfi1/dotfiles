@@ -11,10 +11,12 @@ histedit =
 [alias]
 xl = log --graph --template {oneline} --limit 20
 xxl = log --graph --template {oneline} --limit 50
+x = xl
 
 [ui]
 merge = internal:merge
-username = Vlad Firoiu vladfi2@gmail.com
+username = Vlad Firoiu
+interface = curses
 
 [templatealias]
 oneline = '{hash}{myBranch}{myBookmarks}{myTags} {name} {commitMsg}\n'
@@ -29,3 +31,4 @@ commitMsg = '{desc|firstline|strip}'
 [experimental]
 graphshorten = true
 evolution.allowdivergence=True
+log.topo = true
